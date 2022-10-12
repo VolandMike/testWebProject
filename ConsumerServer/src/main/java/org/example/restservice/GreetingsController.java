@@ -2,10 +2,12 @@ package org.example.restservice;
 
 import java.util.concurrent.atomic.AtomicLong;
 
+import lombok.extern.slf4j.Slf4j;
 import org.example.dto.Greetings;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@Slf4j
 public class GreetingsController {
 
     private static final String template = "Hello, %s!";
@@ -18,7 +20,7 @@ public class GreetingsController {
 
     @RequestMapping(value = "/users", method = RequestMethod.POST)
     public Greetings saveUser(@RequestParam(value = "name", defaultValue = "World") String name) {
-        System.out.println("Save user with name " + name);
+        log.info("Save user with name {}", name);
         return new Greetings(counter.incrementAndGet(), name);
     }
 }
