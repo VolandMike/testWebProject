@@ -15,6 +15,7 @@ public class GreetingsController {
 
     @GetMapping("/greeting")
     public Greetings greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
+        log.info("I give get query with parameter {}", name);
         return new Greetings(counter.incrementAndGet(), String.format(template, name));
     }
 
