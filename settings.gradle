@@ -1,0 +1,4 @@
+rootProject.name = 'petProject'
+include("ProducerClient")
+include("ConsumerServer")
+
