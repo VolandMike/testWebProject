@@ -21,7 +21,6 @@ import java.net.http.HttpResponse;
 @RequiredArgsConstructor
 public class GreetingsGetScheduler {
     private final MessageSender messageSender;
-
     @SneakyThrows
     @Scheduled(fixedDelay = 10000, initialDelay = 10000)
     public void scheduleFixedRateWithInitialDelayTask() {
