@@ -1,4 +1,5 @@
 rootProject.name = 'petProject'
 include("ProducerClient")
 include("ConsumerServer")
+include 'Producer'
 
