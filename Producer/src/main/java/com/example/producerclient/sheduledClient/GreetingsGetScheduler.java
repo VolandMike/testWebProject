@@ -24,7 +24,7 @@ public class GreetingsGetScheduler {
     @SneakyThrows
     @Scheduled(fixedDelay = 10000, initialDelay = 10000)
     public void scheduleFixedRateWithInitialDelayTask() {
-        String sampleData = "http://localhost:8080/greeting?name=Mike";
+        String sampleData = "http://localhost:8080/users";
         messageSender.sendMessage(sampleData, RequestType.GET);
     }
 }
