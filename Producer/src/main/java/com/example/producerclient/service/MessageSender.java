@@ -1,7 +1,7 @@
 package com.example.producerclient.service;
 
-import com.example.producerclient.utils.RequestType;
+import java.net.http.HttpRequest;
 
 public interface MessageSender {
-    void sendMessage(String message, RequestType get) throws Exception;
+    void sendMessage(HttpRequest request) throws Exception;
 }

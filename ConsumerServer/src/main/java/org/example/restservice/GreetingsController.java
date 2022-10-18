@@ -1,10 +1,11 @@
 package org.example.restservice;
 
-import java.util.concurrent.atomic.AtomicLong;
-
 import lombok.extern.slf4j.Slf4j;
 import org.example.dto.Greetings;
+import org.example.dto.User;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.concurrent.atomic.AtomicLong;
 
 @RestController
 @Slf4j
@@ -20,8 +21,9 @@ public class GreetingsController {
     }
 
     @RequestMapping(value = "/users", method = RequestMethod.POST)
-    public Greetings saveUser(@RequestParam(value = "name", defaultValue = "World") String name) {
-        log.info("Save user with name {}", name);
-        return new Greetings(counter.incrementAndGet(), name);
+    public Greetings saveUser(@RequestBody User user) {
+
+        log.info("Request body {}", user);
+        return new Greetings(counter.incrementAndGet(), user.getName());
     }
 }
