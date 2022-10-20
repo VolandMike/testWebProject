@@ -1,8 +1,8 @@
-package org.example.restservice;
+package org.example.consumer.restservice;
 
 import lombok.extern.slf4j.Slf4j;
-import org.example.dto.Greetings;
-import org.example.dto.User;
+import org.example.consumer.domain.Greetings;
+import org.example.consumer.dto.UserDTO;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.concurrent.atomic.AtomicLong;
@@ -21,9 +21,9 @@ public class GreetingsController {
     }
 
     @RequestMapping(value = "/users", method = RequestMethod.POST)
-    public Greetings saveUser(@RequestBody User user) {
+    public Greetings saveUser(@RequestBody UserDTO userDTO) {
 
-        log.info("Request body {}", user);
-        return new Greetings(counter.incrementAndGet(), user.getName());
+        log.info("Request body {}", userDTO);
+        return new Greetings(counter.incrementAndGet(), userDTO.getFirstname());
     }
 }

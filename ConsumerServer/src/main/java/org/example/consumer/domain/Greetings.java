@@ -1,4 +1,4 @@
-package org.example.dto;
+package org.example.consumer.domain;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
