@@ -16,15 +16,20 @@ tasks.register("prepareKotlinBuildScriptModel"){}
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.projectlombok:lombok:1.18.24'
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.14.0-rc1'
+    // https://mvnrepository.com/artifact/org.springframework.data/spring-data-jpa
+    implementation 'org.springframework.data:spring-data-jpa:2.7.5'
 
-    testImplementation 'junit:junit:4.13.2'
+    compileOnly 'org.hibernate:hibernate-core:5.3.20.Final'
+    compileOnly 'com.h2database:h2:2.1.212'
     compileOnly 'org.projectlombok:lombok:1.18.24'
     annotationProcessor 'org.projectlombok:lombok:1.18.24'
 
     testCompileOnly 'org.projectlombok:lombok:1.18.24'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
+    testImplementation 'junit:junit:4.13.2'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
