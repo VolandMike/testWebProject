@@ -6,7 +6,6 @@ import org.example.consumer.domain.Greetings;
 import org.example.consumer.domain.UserDomain;
 import org.example.consumer.dto.UserDTO;
 import org.example.consumer.service.UserFacadeService;
-import org.example.consumer.service.UserService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.concurrent.atomic.AtomicLong;
