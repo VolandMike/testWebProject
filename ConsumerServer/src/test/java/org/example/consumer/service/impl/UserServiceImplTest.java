@@ -27,6 +27,5 @@ class UserServiceImplTest {
         Mockito.when(repository.save(userDomain)).thenReturn(userDomain);
         UserDomain result = userServiceImpl.saveUser(userDomain);
         Assertions.assertEquals(userDomain, result);
-
     }
 }
