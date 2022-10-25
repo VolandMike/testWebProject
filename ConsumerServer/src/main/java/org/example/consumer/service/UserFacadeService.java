@@ -6,6 +6,8 @@ import org.example.consumer.dto.UserDTO;
 import org.example.consumer.mapper.UserMapper;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
 public class UserFacadeService {
@@ -14,5 +16,9 @@ public class UserFacadeService {
     public UserDomain saveUser(UserDTO user) {
         UserDomain userToSave = UserMapper.MAPPER.mapDtoToDomainUser(user);
         return userService.saveUser(userToSave);
+    }
+
+    public Optional<UserDomain> getUserById(Long id) {
+        return userService.getUserById(id);
     }
 }
