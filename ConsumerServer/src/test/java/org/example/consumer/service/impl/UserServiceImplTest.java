@@ -12,6 +12,8 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.Optional;
+
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -23,9 +25,23 @@ class UserServiceImplTest {
 
     @Test
     void testSaveUser() {
-        UserDomain userDomain = new UserDomain(1L, "username", "firstname", "lastname", "password");
+        UserDomain userDomain = getUserDomain();
         Mockito.when(repository.save(userDomain)).thenReturn(userDomain);
         UserDomain result = userServiceImpl.saveUser(userDomain);
         Assertions.assertEquals(userDomain, result);
+    }
+
+
+    @Test
+    void testGetUserById() {
+        UserDomain userDomain = getUserDomain();
+        Mockito.when(repository.findById(1L)).thenReturn(Optional.of(userDomain));
+        Optional<UserDomain> result = userServiceImpl.getUserById(1L);
+        Assertions.assertTrue(result.isPresent());
+        Assertions.assertEquals(userDomain, result.get());
+    }
+
+    private UserDomain getUserDomain() {
+        return new UserDomain(1L, "username", "firstname", "lastname", "password");
     }
 }
