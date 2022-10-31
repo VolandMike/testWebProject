@@ -28,7 +28,7 @@ public class UserConfig {
 
         try (Reader reader = new BufferedReader(
                 new InputStreamReader(Objects.requireNonNull(UserConfig
-                        .class.getClassLoader().getResourceAsStream("user/users.csv"))))) {
+                        .class.getClassLoader().getResourceAsStream(csvPath))))) {
 
             // create csv bean reader
             CsvToBean<User> csvToBean = new CsvToBeanBuilder<User>(reader)
