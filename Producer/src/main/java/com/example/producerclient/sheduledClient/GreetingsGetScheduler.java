@@ -3,6 +3,7 @@ package com.example.producerclient.sheduledClient;
 import com.example.producerclient.config.UserConfig;
 import com.example.producerclient.service.MessageSender;
 import com.example.producerclient.service.RequestBuilder;
+import com.example.producerclient.service.URIBuilder;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
@@ -18,13 +19,13 @@ import java.net.http.HttpRequest;
 public class GreetingsGetScheduler {
     private final RequestBuilder requestBuilder;
     private final MessageSender messageSender;
-
     private final UserConfig userConfig;
+    private final URIBuilder uriBuilder;
 
     @SneakyThrows
     @Scheduled(fixedDelay = 10000, initialDelay = 10000)
     public void scheduleFixedRateWithInitialDelayTask() {
-        URI sampleData = new URI("http://localhost:8080/users");
+        URI sampleData = uriBuilder.build();
         userConfig.getUserListFromCsv().forEach(user -> {
                     HttpRequest request = requestBuilder.buildRequest(sampleData, user);
                     try {
