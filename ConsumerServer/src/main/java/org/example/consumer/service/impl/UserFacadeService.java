@@ -17,7 +17,8 @@ public class UserFacadeService implements UserFacade {
 
     public UserDomain saveUser(UserDTO user) {
         UserDomain userToSave = UserMapper.MAPPER.mapDtoToDomainUser(user);
-        return userService.saveUser(userToSave);
+        return userService.getUserByUserName(userToSave.getUsername())
+                .orElseGet(() -> userService.saveUser(userToSave));
     }
 
     public Optional<UserDomain> getUserById(Long id) {

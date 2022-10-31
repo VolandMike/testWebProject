@@ -3,26 +3,26 @@ package org.example.consumer.domain;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name="users", schema="public")
+@Table(name = "users", schema = "public")
 @Data
-@Builder
 @AllArgsConstructor
 public class UserDomain {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name="USERNAME", length=50, nullable=false)
+    @Column(name = "user_name", length = 50, nullable = false, unique = true)
     private String username;
-    @Column(name="FIRSTNAME", length=50, nullable=false)
+    @Column(name = "first_name", length = 50, nullable = false)
     private String firstname;
-    @Column(name="LASTNAME", length=50, nullable=false)
+    @Column(name = "last_name", length = 50, nullable = false)
     private String lastname;
-    @Column(name="PASSWORD", length=50, nullable=false)
+    @Column(name = "password", length = 50, nullable = false)
     private String password;
 
     public UserDomain() {

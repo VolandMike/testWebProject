@@ -8,4 +8,6 @@ public interface UserService {
     UserDomain saveUser(UserDomain user);
 
     Optional<UserDomain> getUserById(Long id);
+
+    Optional<UserDomain> getUserByUserName(String userName);
 }

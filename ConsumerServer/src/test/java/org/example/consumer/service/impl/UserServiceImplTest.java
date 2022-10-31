@@ -40,6 +40,15 @@ class UserServiceImplTest {
         Assertions.assertTrue(result.isPresent());
         Assertions.assertEquals(userDomain, result.get());
     }
+    @Test
+    void testGetUserByUserName() {
+        UserDomain userDomain = getUserDomain();
+        when(repository.getUserDomainByUsername(anyString())).thenReturn(Optional.of(userDomain));
+
+        Optional<UserDomain> result = userServiceImpl.getUserByUserName("userName");
+        Assertions.assertTrue(result.isPresent());
+        Assertions.assertEquals(userDomain, result.get());
+    }
 
     private UserDomain getUserDomain() {
         return new UserDomain(1L, "username", "firstname", "lastname", "password");

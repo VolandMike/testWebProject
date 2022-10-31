@@ -30,6 +30,15 @@ class UserFacadeServiceTest {
         UserDomain result = userFacadeService.saveUser(new UserDTO("username", "firstname", "lastname", "password"));
         Assertions.assertEquals(new UserDomain(1L, "username", "firstname", "lastname", "password"), result);
     }
+
+    @Test
+    void testSaveUserIfExist() {
+        when(userService.getUserByUserName(any())).thenReturn(Optional.of(new UserDomain(1L, "username", "firstname", "lastname", "password")));
+
+        UserDomain result = userFacadeService.saveUser(new UserDTO("username", "firstname", "lastname", "password"));
+        Assertions.assertEquals(new UserDomain(1L, "username", "firstname", "lastname", "password"), result);
+    }
+
     @Test
     void testGetUserById() {
         UserDomain expectedUser = new UserDomain();
