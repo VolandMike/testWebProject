@@ -1,0 +1,8 @@
+spring:
+  profiles:
+    group:
+      test:
+        - h2-datasource
+      prod:
+        - postgresql-datasource
+    default: prod

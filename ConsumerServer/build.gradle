@@ -22,6 +22,7 @@ dependencies {
     // https://mvnrepository.com/artifact/org.springframework.data/spring-data-jpa
     implementation 'org.springframework.data:spring-data-jpa:2.7.5'
     implementation 'org.mapstruct:mapstruct:1.5.3.Final'
+    runtimeOnly 'org.postgresql:postgresql'
 
     compileOnly 'org.hibernate:hibernate-core:5.3.20.Final'
     compileOnly 'com.h2database:h2:2.1.212'

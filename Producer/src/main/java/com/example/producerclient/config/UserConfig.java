@@ -22,7 +22,6 @@ public class UserConfig {
     @Getter
     List<User> userListFromCsv;
 
-
     @Bean
     void loadUsers() {
 
