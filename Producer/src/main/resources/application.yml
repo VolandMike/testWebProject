@@ -1,2 +1,7 @@
 filename: user/users.csv
-request_url: http://localhost:9090/users
+service:
+  service_urls:
+    POST:
+      - http://localhost:9090/users
+    GET:
+      - http://localhost:9090/users

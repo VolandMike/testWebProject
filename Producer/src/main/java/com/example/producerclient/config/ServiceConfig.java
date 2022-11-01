@@ -1,12 +1,19 @@
 package com.example.producerclient.config;
 
+import com.example.producerclient.utils.RequestType;
 import lombok.Getter;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Configuration;
+import lombok.Setter;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.stereotype.Component;
 
-@Configuration
+import java.util.List;
+import java.util.Map;
+
+@Component
+@ConfigurationProperties(prefix = "service")
 @Getter
+@Setter
 public class ServiceConfig {
-    @Value("${request_url}")
-    private String requestUrl;
+    private Map<RequestType, List<String>> serviceUrls;
+
 }
