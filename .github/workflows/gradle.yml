@@ -12,15 +12,16 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+  pull_request_target:
+    types: [labeled]
 
 permissions:
   contents: read
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
+    if: contains(github.event.pull_request.labels.*.name, 'STAGING')
     steps:
     - uses: actions/checkout@v3
     - name: Set up JDK 11
