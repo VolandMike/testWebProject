@@ -4,6 +4,7 @@ import com.example.producerclient.config.UserConfig;
 import com.example.producerclient.service.MessageSender;
 import com.example.producerclient.service.RequestBuilder;
 import com.example.producerclient.service.URIBuilder;
+import com.example.producerclient.utils.RequestType;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
@@ -25,7 +26,7 @@ public class GreetingsGetScheduler {
     @SneakyThrows
     @Scheduled(fixedDelay = 10000, initialDelay = 10000)
     public void scheduleFixedRateWithInitialDelayTask() {
-        URI sampleData = uriBuilder.build();
+        URI sampleData = uriBuilder.build(RequestType.POST);
         userConfig.getUserListFromCsv().forEach(user -> {
                     HttpRequest request = requestBuilder.buildRequest(sampleData, user);
                     try {
