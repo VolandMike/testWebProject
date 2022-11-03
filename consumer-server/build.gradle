@@ -22,7 +22,7 @@ tasks.named("bootBuildImage") {
     docker {
         builderRegistry {
             username = "volandpw"
-            password = "fuck14pW"
+            password = ""
             url = "registry.hub.docker.com/volandpw/test-web-project"
         }
     }
