@@ -2,9 +2,7 @@ package org.example.consumer.service.impl;
 
 import org.example.consumer.domain.UserDomain;
 import org.example.consumer.dto.UserDTO;
-import org.example.consumer.mapper.UserMapper;
 import org.example.consumer.service.UserService;
-import org.example.consumer.service.impl.UserFacadeService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
