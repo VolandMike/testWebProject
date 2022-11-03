@@ -1,9 +1,7 @@
 package org.example.consumer.domain;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
-import lombok.Getter;
 
 import javax.persistence.*;
 

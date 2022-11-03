@@ -4,12 +4,8 @@ import org.example.consumer.domain.UserDomain;
 import org.example.consumer.dto.UserDTO;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.Objects;
 import java.util.UUID;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class UserMapperTest {
     UserMapper mapper = UserMapper.MAPPER;

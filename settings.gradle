@@ -1,4 +1,4 @@
 rootProject.name = 'petProject'
-include("ConsumerServer")
-include 'Producer'
+include("consumer-server")
+include 'producer'
 

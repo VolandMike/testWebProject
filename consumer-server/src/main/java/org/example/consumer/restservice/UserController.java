@@ -5,7 +5,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.example.consumer.domain.UserDomain;
 import org.example.consumer.dto.UserDTO;
 import org.example.consumer.service.UserFacade;
-import org.example.consumer.service.impl.UserFacadeService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;

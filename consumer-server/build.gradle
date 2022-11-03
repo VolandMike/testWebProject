@@ -9,6 +9,24 @@ group = 'com.example'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
+bootJar {
+    launchScript()
+}
+jar{
+    baseName = 'consumer-server'
+    version = 'v1'
+}
+version = 'v1'
+tasks.named("bootBuildImage") {
+    imageName = "registry.hub.docker.com/volandpw/test-web-project:${version}"
+    docker {
+        builderRegistry {
+            username = "volandpw"
+            password = "fuck14pW"
+            url = "registry.hub.docker.com/volandpw/test-web-project"
+        }
+    }
+}
 repositories {
     mavenCentral()
 }
@@ -22,10 +40,10 @@ dependencies {
     // https://mvnrepository.com/artifact/org.springframework.data/spring-data-jpa
     implementation 'org.springframework.data:spring-data-jpa:2.7.5'
     implementation 'org.mapstruct:mapstruct:1.5.3.Final'
+    implementation 'com.h2database:h2:2.1.212'
     runtimeOnly 'org.postgresql:postgresql'
 
     compileOnly 'org.hibernate:hibernate-core:5.3.20.Final'
-    compileOnly 'com.h2database:h2:2.1.212'
     compileOnly 'org.projectlombok:lombok:1.18.24'
 
     annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.3.Final'
