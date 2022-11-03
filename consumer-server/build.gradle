@@ -13,10 +13,20 @@ bootJar {
     launchScript()
 }
 jar{
-    baseName = 'ConsumerServer'
+    baseName = 'consumer-server'
     version = 'v1'
 }
-
+version = 'v1'
+tasks.named("bootBuildImage") {
+    imageName = "registry.hub.docker.com/volandpw/test-web-project:${version}"
+    docker {
+        builderRegistry {
+            username = "volandpw"
+            password = "fuck14pW"
+            url = "registry.hub.docker.com/volandpw/test-web-project"
+        }
+    }
+}
 repositories {
     mavenCentral()
 }
