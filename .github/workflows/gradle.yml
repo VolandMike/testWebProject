@@ -46,3 +46,4 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - run: ./gradlew bootBuildImage
       - run: docker push volandpw/test-web-project:producer-0.0.1
+      - run: docker push volandpw/test-web-project:consumer-0.0.1
