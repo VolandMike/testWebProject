@@ -44,7 +44,6 @@ jobs:
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
-    - name: Build a container image from our Spring Boot app using Paketo.io / Cloud Native Build Packs
     - run: ./gradlew bootBuildImage
     - run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
     - run: docker push registry.hub.docker.com/volandpw/test-web-project:producer0.0.1
