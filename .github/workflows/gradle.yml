@@ -40,3 +40,5 @@ jobs:
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build a container image from our Spring Boot app using Paketo.io / Cloud Native Build Packs
+      run: ./gradlew bootBuildImage
