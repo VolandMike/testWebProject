@@ -22,7 +22,7 @@ jar{
     version = '0-0-1'
 }
 tasks.named("bootBuildImage") {
-    imageName = "registry.hub.docker.com/volandpw/test-web-project:consumer-${version}"
+    imageName = "volandpw/test-web-project:consumer-${version}"
     docker {
         builderRegistry {
             username = "$dockerUserName"

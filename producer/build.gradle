@@ -21,7 +21,7 @@ var dockerPassword = System.getenv("DOCKER_PASSWORD")
 var dockerUrl = "registry.hub.docker.com/volandpw/test-web-project"
 
 tasks.named("bootBuildImage") {
-    imageName = "registry.hub.docker.com/volandpw/test-web-project:producer-${version}"
+    imageName = "volandpw/test-web-project:producer-${version}"
     docker {
         builderRegistry {
             username = "$dockerUserName"
