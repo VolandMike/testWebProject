@@ -5,8 +5,8 @@ plugins {
     id "application"
 }
 
-group = 'com.example'
-version = '0.0.1-SNAPSHOT'
+group = 'com.example.producerclient'
+version = '0.0.1'
 sourceCompatibility = "11"
 
 tasks.register("prepareKotlinBuildScriptModel"){}
@@ -15,6 +15,20 @@ repositories {
 }
 configurations.all {
     exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
+}
+var dockerUserName = System.getenv("DOCKER_USERNAME")
+var dockerPassword = System.getenv("DOCKER_PASSWORD")
+var dockerUrl = "registry.hub.docker.com/volandpw/test-web-project"
+
+tasks.named("bootBuildImage") {
+    imageName = "registry.hub.docker.com/volandpw/test-web-project:producer-${version}"
+    docker {
+        builderRegistry {
+            username = "$dockerUserName"
+            password = "$dockerPassword"
+            url = "$dockerUrl"
+        }
+    }
 }
 
 dependencies {
