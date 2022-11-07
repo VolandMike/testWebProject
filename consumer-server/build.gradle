@@ -5,25 +5,29 @@ plugins {
     id "application"
 }
 
-group = 'com.example'
-version = '0.0.1-SNAPSHOT'
+group = 'org.example.consumer'
+var basename = 'consumer-server'
+version = '0.0.1'
 sourceCompatibility = '11'
+var dockerUserName = System.getenv("DOCKER_USERNAME")
+var dockerPassword = System.getenv("DOCKER_PASSWORD")
+var dockerUrl = "registry.hub.docker.com/volandpw/test-web-project"
 
 bootJar {
     launchScript()
 }
+
 jar{
     baseName = 'consumer-server'
-    version = 'v1'
+    version = '0-0-1'
 }
-version = 'v1'
 tasks.named("bootBuildImage") {
-    imageName = "registry.hub.docker.com/volandpw/test-web-project:${version}"
+    imageName = "registry.hub.docker.com/volandpw/test-web-project:consumer-${version}"
     docker {
         builderRegistry {
-            username = "volandpw"
-            password = ""
-            url = "registry.hub.docker.com/volandpw/test-web-project"
+            username = "$dockerUserName"
+            password = "$dockerPassword"
+            url = "$dockerUrl"
         }
     }
 }
