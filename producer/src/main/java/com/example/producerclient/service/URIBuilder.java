@@ -1,6 +1,7 @@
 package com.example.producerclient.service;
 
 import com.example.producerclient.config.ServiceConfig;
+import com.example.producerclient.exception.URLNotFoundException;
 import com.example.producerclient.utils.RequestType;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -17,6 +18,6 @@ public class URIBuilder {
         if (serviceConfig.getServiceUrls().containsKey(requestType)) {
             return new URI(serviceConfig.getServiceUrls().get(requestType).stream().findFirst().orElseThrow());
         }
-        throw new RuntimeException();
+        throw new URLNotFoundException("Can't find urls for request type " + requestType);
     }
 }

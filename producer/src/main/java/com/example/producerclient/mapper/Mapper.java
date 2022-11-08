@@ -1,6 +1,7 @@
 package com.example.producerclient.mapper;
 
 import com.example.producerclient.dto.User;
+import com.example.producerclient.exception.MappingException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
@@ -17,7 +18,7 @@ public class Mapper {
             json = ow.writeValueAsString(user);
         } catch (JsonProcessingException e) {
             log.error("Can't map object {} to json ", user);
-            throw new RuntimeException(e);
+            throw new MappingException(e);
         }
         return json;
     }

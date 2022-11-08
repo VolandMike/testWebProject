@@ -1,6 +1,7 @@
 package com.example.producerclient.config;
 
 import com.example.producerclient.dto.User;
+import com.example.producerclient.exception.BeanNotInstallException;
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
 import lombok.Getter;
@@ -39,7 +40,7 @@ public class UserConfig {
             userListFromCsv = csvToBean.parse();
 
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new BeanNotInstallException(e);
         }
     }
 }

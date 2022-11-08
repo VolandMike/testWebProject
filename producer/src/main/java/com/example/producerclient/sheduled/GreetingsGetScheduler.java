@@ -1,4 +1,4 @@
-package com.example.producerclient.sheduledClient;
+package com.example.producerclient.sheduled;
 
 import com.example.producerclient.config.UserConfig;
 import com.example.producerclient.service.MessageSender;
