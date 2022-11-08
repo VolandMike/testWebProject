@@ -1,0 +1,8 @@
+
+subprojects {
+    ext {
+        dockerUserName = System.getenv("DOCKER_USERNAME")
+        dockerPassword = System.getenv("DOCKER_PASSWORD")
+        dockerUrl = "registry.hub.docker.com/volandpw/test-web-project"
+    }
+}
