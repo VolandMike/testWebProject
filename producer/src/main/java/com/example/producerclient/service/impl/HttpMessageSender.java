@@ -1,5 +1,6 @@
 package com.example.producerclient.service.impl;
 
+import com.example.producerclient.exception.MessageSenderException;
 import com.example.producerclient.service.MessageSender;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -16,11 +17,16 @@ import java.net.http.HttpResponse;
 public class HttpMessageSender implements MessageSender {
 
     @Override
-    public void sendMessage(HttpRequest request) throws IOException, InterruptedException {
+    public void sendMessage(HttpRequest request) {
 
-        HttpResponse<String> send = HttpClient.newBuilder().build().send(
-                request, HttpResponse.BodyHandlers.ofString()
-        );
+        final HttpResponse<String> send;
+        try {
+            send = HttpClient.newBuilder().build().send(
+                    request, HttpResponse.BodyHandlers.ofString()
+            );
+        } catch (IOException | InterruptedException e) {
+            throw new MessageSenderException(e);
+        }
 
         log.info("I'm getting message body {}", send.body());
     }
