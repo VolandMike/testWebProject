@@ -42,13 +42,13 @@ class UserControllerTest {
     private MockMvc mockMvc;
 
     @Test
-    public void whenGreetingsControllerGetRequestWithDefaultMessage_thenReturnDefaultMessage() throws Exception {
+    void whenGreetingsControllerGetRequestWithDefaultMessage_thenReturnDefaultMessage() throws Exception {
         this.mockMvc.perform(get("/users")).andDo(print()).andExpect(status().is(200))
                 .andExpect(content().string(containsString("Bad request param")));
     }
 
     @Test
-    public void whenGreetingsControllerGetRequestWithRequestParam_thenReturnCorrectMessage() throws Exception {
+    void whenGreetingsControllerGetRequestWithRequestParam_thenReturnCorrectMessage() throws Exception {
         UserDomain userDomain = createUserDomain(1L);
         Mockito.when(userFacadeService.getUserById(1L)).thenReturn(Optional.of(userDomain));
         this.mockMvc.perform(get("/users").param("id", "1")).andDo(print()).andExpect(status().isOk())
@@ -56,7 +56,7 @@ class UserControllerTest {
     }
 
     @Test
-    public void whenGreetingsControllerPostRequestWithRequestParam_thenReturnCorrectMessage() throws Exception {
+    void whenGreetingsControllerPostRequestWithRequestParam_thenReturnCorrectMessage() throws Exception {
         UserDomain userDomain = createUserDomain(2);
         String requestBody = mapUserDomainToJson(userDomain);
         Mockito.when(userFacadeService.saveUser(Mockito.any())).thenReturn(userDomain);

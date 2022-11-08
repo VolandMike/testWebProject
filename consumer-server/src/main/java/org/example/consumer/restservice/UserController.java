@@ -29,7 +29,7 @@ public class UserController {
         return String.format("Can't find user with id %s", id);
     }
 
-    @RequestMapping(value = "/users", method = RequestMethod.POST)
+    @PostMapping(value = "/users")
     public UserDomain saveUser(@RequestBody UserDTO userDTO) {
         log.info("Request body {}", userDTO);
         UserDomain userDomain = facadeService.saveUser(userDTO);

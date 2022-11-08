@@ -2,6 +2,7 @@ package org.example.consumer.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
@@ -9,6 +10,7 @@ import javax.persistence.*;
 @Table(name = "users", schema = "public")
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class UserDomain {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -23,7 +25,4 @@ public class UserDomain {
     @Column(name = "password", length = 50, nullable = false)
     private String password;
 
-    public UserDomain() {
-
-    }
 }
