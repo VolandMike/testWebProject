@@ -1,0 +1,44 @@
+databaseChangeLog:
+  - logicalFilePath: db/changelog/db.changelog-master.yaml
+  - changeSet:
+      id: 1
+      author: voland
+      changes:
+        - createSequence:
+            cacheSize: 371717
+            catalogName: cat
+            cycle: true
+            dataType: int
+            incrementBy: 1
+            maxValue: 1000
+            minValue: 0
+            schemaName: public
+            sequenceName: HIBERNATE_SEQUENCE
+            startValue: 0
+        - createTable:
+            tableName: users
+            columns:
+              - column:
+                  name: id
+                  type: SERIAL
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: user_name
+                  type: varchar(50)
+                  constraints:
+                    unique: true
+                    nullable: false
+              - column:
+                  name: password
+                  type: varchar(512)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: first_name
+                  type: varchar(50)
+              - column:
+                  name: last_name
+                  type: varchar(50)
