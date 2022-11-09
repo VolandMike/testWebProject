@@ -5,6 +5,7 @@ spring:
         - h2-datasource
       prod:
         - postgresql-datasource
+        - liquidbase
     default: test
 server:
   port: 9090
