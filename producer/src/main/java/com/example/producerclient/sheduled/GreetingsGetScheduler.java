@@ -24,7 +24,7 @@ public class GreetingsGetScheduler {
     private final URIBuilder uriBuilder;
 
     @SneakyThrows
-    @Scheduled(fixedDelay = 10000, initialDelay = 10000)
+   // @Scheduled(fixedDelay = 10000, initialDelay = 10000)
     public void scheduleFixedRateWithInitialDelayTask() {
         URI sampleData = uriBuilder.build(RequestType.POST);
         userConfig.getUserListFromCsv().forEach(user -> {

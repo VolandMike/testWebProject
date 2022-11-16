@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Result</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css"
+          th:href="@{/css/display_form.css}" />
+</head>
+<body>
+<h2>Result</h2>
+<table>
+    <tbody>
+    <tr>
+        <td><strong>UserName:</strong></td>
+        <td><span th:text="${user.username}"></span></td>
+    </tr>
+    <tr>
+        <td><strong>Password:</strong></td>
+        <td><span th:text="${user.password}"></span></td>
+
+    </tr>
+    <tr>
+        <td><strong>FirstName:</strong></td>
+        <td><span th:text="${user.firstname}"></span></td>
+
+    </tr>
+    <tr>
+        <td><strong>LastName:</strong></td>
+        <td><span th:text="${user.lastname}"></span></td>
+
+    </tr>
+    <tr>
+        <td colspan="2">&nbsp;<a th:href="@{registration_form}"
+                                 class="btn btn-success"> <i class="fa fa-arrow-circle-o-left"></i>&nbsp;Add
+            new employee
+        </a></td>
+    </tr>
+    <tr>
+        <form th:action="@{/send}" th:object="${user}" method="post">
+            <button type="submit" class="btn btn-primary btn-block mt-3">Send</button>
+        </form>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
