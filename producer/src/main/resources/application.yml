@@ -5,3 +5,8 @@ service:
       - http://localhost:9090/users
     GET:
       - http://localhost:9090/users
+spring:
+  security:
+    user:
+      name: user
+      password: password

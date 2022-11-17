@@ -19,7 +19,7 @@ import java.net.http.HttpRequest;
 @RequiredArgsConstructor
 public class GreetingsGetScheduler {
     private final RequestBuilder requestBuilder;
-    private final MessageSender messageSender;
+    private final MessageSender<HttpRequest> messageSender;
     private final UserConfig userConfig;
     private final URIBuilder uriBuilder;
 
